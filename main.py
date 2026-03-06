@@ -4,7 +4,6 @@ import json
 from dotenv import load_dotenv
 from fastmcp import FastMCP
 from sqlalchemy import create_engine, inspect, text
-from fastapi import FastAPI
 
 # 1️⃣ Load environment variables
 load_dotenv()
@@ -56,9 +55,6 @@ def run_query(sql: str):
         result = conn.execute(text(sql))
         rows = [dict(r) for r in result.mappings()]
         return json.dumps(rows, default=str, indent=2)
-
-app = FastAPI()
-app.mount("/", mcp.asgi())
 
 # 7️⃣ Run MCP server over STDIO
 if __name__ == "__main__":
