@@ -7,7 +7,8 @@ from sqlalchemy import create_engine, inspect, text
 
 # 1️⃣ Load environment variables
 load_dotenv()
-DB_URL = f"mysql+pymysql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT')}/{os.getenv('DB_NAME')}"
+# DB_URL = f"mysql+pymysql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT')}/{os.getenv('DB_NAME')}"
+DB_URL = "libsql://qms-dev-vercel-icfg-zoxkd6ysocnycrzkasnikgus.aws-us-east-1.turso.io"
 engine = create_engine(DB_URL)
 
 # 2️⃣ Initialize MCP server
